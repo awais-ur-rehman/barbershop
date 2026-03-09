@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Scissors, Sparkles, ArrowRight } from "lucide-react";
+import ScrollCanvas from "@/components/ScrollCanvas";
+import ScrollText from "@/components/ScrollText";
 
 export default function Home() {
   return (
@@ -12,7 +14,7 @@ export default function Home() {
             src="/images/hero.png"
             alt="Luxury Barber Shop"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             quality={100}
             priority
             className="opacity-80 scale-105 animate-slow-zoom"
@@ -22,20 +24,28 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 space-y-8 animate-fade-in-up">
           <div className="inline-block border-y border-gold/50 py-2 px-6 mb-4">
-            <span className="text-gold text-xs md:text-sm uppercase tracking-[0.3em] font-medium">Est. 2024</span>
+            <span className="text-gold text-xs md:text-sm uppercase tracking-[0.3em] font-medium">
+              Est. 2024
+            </span>
           </div>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold tracking-tighter leading-none text-white drop-shadow-2xl">
-            LEGACY <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 italic font-light">GROOMING</span>
+            LEGACY{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 italic font-light">
+              GROOMING
+            </span>
           </h1>
           <p className="text-lg md:text-xl font-light text-gray-300 max-w-2xl mx-auto leading-relaxed tracking-wide">
-            Where traditional craftsmanship meets modern luxury. Experience the finest haircut and shave in the city.
+            Where traditional craftsmanship meets modern luxury. Experience the
+            finest haircut and shave in the city.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
             <Link
               href="/schedule"
               className="group relative px-10 py-4 bg-gold text-primary-foreground font-bold uppercase tracking-widest text-sm overflow-hidden"
             >
-              <span className="relative z-10 group-hover:text-primary transition-colors duration-300">Book Appointment</span>
+              <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
+                Book Appointment
+              </span>
               <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
             </Link>
             <Link
@@ -48,13 +58,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Scroll-Driven Video Section ── */}
+      <ScrollCanvas
+        src="/videos/Flow_delpmaspu_.mp4"
+        scrollHeightMultiplier={5}
+        className="bg-black"
+      >
+        {/* Text overlays that appear/disappear at specific scroll points */}
+        <ScrollText appearAt={0.0} disappearAt={0.2} side="left">
+          <h2 className="text-3xl md:text-5xl font-serif italic font-light text-black tracking-wide mb-4">
+            From The Raw Look
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 font-sans leading-relaxed max-w-xs">
+            Every great style begins with potential. We see past the overgrown
+            edges to the sharp, refined gentleman waiting to emerge.
+          </p>
+        </ScrollText>
+
+        <ScrollText appearAt={0.25} disappearAt={0.5} side="right">
+          <h2 className="text-3xl md:text-5xl font-serif italic font-light text-black tracking-wide mb-4">
+            Precision in Every Cut
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 font-sans leading-relaxed max-w-xs ml-auto">
+            Our master barbers work with surgical precision, sculpting your look
+            stroke by stroke to define your best features.
+          </p>
+        </ScrollText>
+
+        <ScrollText appearAt={0.55} disappearAt={0.75} side="left">
+          <h2 className="text-3xl md:text-5xl font-serif italic font-light text-black tracking-wide mb-4">
+            Crafted to Perfection
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 font-sans leading-relaxed max-w-xs">
+            It&apos;s not just a haircut; it&apos;s a work of art. We obsess
+            over the details—the fade, the line-up, the texture—so you
+            don&apos;t have to.
+          </p>
+        </ScrollText>
+
+        <ScrollText appearAt={0.8} disappearAt={1.0} side="center">
+          <h2 className="text-4xl md:text-7xl font-serif italic font-bold text-gold tracking-tight mb-6">
+            The Final Look
+          </h2>
+          <p className="text-base md:text-lg text-gray-800 font-sans leading-relaxed max-w-lg mx-auto border-t border-gold/30 pt-6">
+            Step out of the chair with confidence. A fresh cut, a clean shave,
+            and a look that commands respect. Ready for the world.
+          </p>
+        </ScrollText>
+      </ScrollCanvas>
+
       {/* Services Section */}
       <section id="services" className="py-32 bg-background relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-gold/50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground">Our Signature Services</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground">
+              Our Signature Services
+            </h2>
             <div className="w-24 h-1 bg-gold mx-auto" />
             <p className="text-foreground/60 max-w-xl mx-auto leading-relaxed pt-4">
               Meticulous attention to detail. Premium products. Unrivaled skill.
@@ -65,50 +126,77 @@ export default function Home() {
             {/* Service 1 */}
             <div className="group bg-card p-10 border border-white/5 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-8 group-hover:bg-gold transition-colors duration-500">
-                <Scissors className="text-foreground group-hover:text-black transition-colors duration-500" size={32} />
+                <Scissors
+                  className="text-foreground group-hover:text-black transition-colors duration-500"
+                  size={32}
+                />
               </div>
-              <h3 className="text-2xl font-serif text-foreground mb-4">Precision Cut</h3>
+              <h3 className="text-2xl font-serif text-foreground mb-4">
+                Precision Cut
+              </h3>
               <p className="text-foreground/60 mb-8 leading-relaxed">
-                Consultation, shampoo, precision haircut, and hot towel finish. Tailored to your face shape and style.
+                Consultation, shampoo, precision haircut, and hot towel finish.
+                Tailored to your face shape and style.
               </p>
               <div className="flex justify-between items-center border-t border-white/10 pt-6">
                 <span className="text-2xl font-serif text-gold">$45</span>
-                <span className="text-xs uppercase tracking-widest text-foreground/40">45 Mins</span>
+                <span className="text-xs uppercase tracking-widest text-foreground/40">
+                  45 Mins
+                </span>
               </div>
             </div>
 
             {/* Service 2 */}
             <div className="group bg-card p-10 border border-white/5 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 mt-0 md:-mt-8 relative z-10 shadow-2xl">
               <div className="absolute top-0 right-0 p-4">
-                <span className="bg-gold text-black text-xs font-bold px-3 py-1 uppercase tracking-widest">Popular</span>
+                <span className="bg-gold text-black text-xs font-bold px-3 py-1 uppercase tracking-widest">
+                  Popular
+                </span>
               </div>
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-8 group-hover:bg-gold transition-colors duration-500">
-                <Sparkles className="text-foreground group-hover:text-black transition-colors duration-500" size={32} />
+                <Sparkles
+                  className="text-foreground group-hover:text-black transition-colors duration-500"
+                  size={32}
+                />
               </div>
-              <h3 className="text-2xl font-serif text-foreground mb-4">Royal Treatment</h3>
+              <h3 className="text-2xl font-serif text-foreground mb-4">
+                Royal Treatment
+              </h3>
               <p className="text-foreground/60 mb-8 leading-relaxed">
-                The ultimate grooming experience. Haircut, straight razor shave, facial massage, and premium styling.
+                The ultimate grooming experience. Haircut, straight razor shave,
+                facial massage, and premium styling.
               </p>
               <div className="flex justify-between items-center border-t border-white/10 pt-6">
                 <span className="text-2xl font-serif text-gold">$85</span>
-                <span className="text-xs uppercase tracking-widest text-foreground/40">90 Mins</span>
+                <span className="text-xs uppercase tracking-widest text-foreground/40">
+                  90 Mins
+                </span>
               </div>
             </div>
 
             {/* Service 3 */}
             <div className="group bg-card p-10 border border-white/5 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-8 group-hover:bg-gold transition-colors duration-500">
-                <img src="/icons/razor.svg" alt="Razor" className="w-8 h-8 opacity-80 group-hover:opacity-100 invert dark:invert-0" />
+                <img
+                  src="/icons/razor.svg"
+                  alt="Razor"
+                  className="w-8 h-8 opacity-80 group-hover:opacity-100 invert dark:invert-0"
+                />
                 {/* Fallback if razor icon not available, but user requested SVG icons */}
                 {/* Using lucide Razor if available, otherwise generic */}
               </div>
-              <h3 className="text-2xl font-serif text-foreground mb-4">Classic Shave</h3>
+              <h3 className="text-2xl font-serif text-foreground mb-4">
+                Classic Shave
+              </h3>
               <p className="text-foreground/60 mb-8 leading-relaxed">
-                Hot towel, pre-shave oil, hot lather, straight razor shave, and cold towel finish.
+                Hot towel, pre-shave oil, hot lather, straight razor shave, and
+                cold towel finish.
               </p>
               <div className="flex justify-between items-center border-t border-white/10 pt-6">
                 <span className="text-2xl font-serif text-gold">$55</span>
-                <span className="text-xs uppercase tracking-widest text-foreground/40">45 Mins</span>
+                <span className="text-xs uppercase tracking-widest text-foreground/40">
+                  45 Mins
+                </span>
               </div>
             </div>
           </div>
@@ -122,16 +210,23 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">Ready for your upgrade?</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              Ready for your upgrade?
+            </h2>
             <p className="text-xl text-gray-400 font-light mb-8">
-              Book your appointment today and experience the difference of a true gentleman's barber shop.
+              Book your appointment today and experience the difference of a
+              true gentleman&apos;s barber shop.
             </p>
           </div>
           <Link
             href="/schedule"
             className="group flex items-center gap-4 px-12 py-6 bg-gold text-black font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors duration-300"
           >
-            Book Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            Book Now{" "}
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Link>
         </div>
       </section>
