@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --color-primary: #121212;
+    --color-primary-foreground: #FAFAFA;
+
+    --color-secondary: #C5A059;
+    --color-secondary-foreground: #121212;
+
+    --color-accent: #C5A059;
+    --color-accent-foreground: #121212;
+
+    --color-background: #F9FAFB;
+    --color-foreground: #374151;
+
+    --color-muted: #F3F4F6;
+    --color-muted-foreground: #6B7280;
+
+    --color-card: #FFFFFF;
+    --color-card-foreground: #374151;
+
+    --color-border: #E5E7EB;
+    --color-input: #E5E7EB;
+
+    --color-success: #10B981;
+    --color-success-foreground: #FFFFFF;
+
+    --font-serif: var(--font-playfair), serif;
+    --font-sans: var(--font-dm-sans), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Utilities for Luxury Feel */
+@layer utilities {
+    .text-gold {
+        color: var(--color-secondary);
+    }
+
+    .bg-gold {
+        background-color: var(--color-secondary);
+    }
+
+    .border-gold {
+        border-color: var(--color-secondary);
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Global Styles */
+@layer base {
+    :root {
+        /* Default to Dark/Luxury Theme */
+        --background: #121212;
+        --foreground: #EDEDED;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+        --color-background: #121212;
+        --color-foreground: #EDEDED;
+
+        --color-primary: #121212;
+        --color-primary-foreground: #FAFAFA;
+
+        --color-secondary: #C5A059;
+        --color-secondary-foreground: #121212;
+
+        --color-border: #333333;
+        --color-muted: #1F1F1F;
+        --color-card: #1A1A1A;
+    }
+
+    .dark {
+        --background: #121212;
+        --foreground: #E5E5E5;
+        --color-background: #121212;
+        --color-foreground: #E5E5E5;
+        --color-card: #1E1E1E;
+        --color-card-foreground: #E5E5E5;
+        --color-border: #2D2D2D;
+        --color-muted: #1F2937;
+        --color-muted-foreground: #9CA3AF;
+    }
+
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
+        @apply font-sans antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif tracking-tight;
+    }
+
+    h1 {
+        @apply text-4xl md:text-5xl font-bold;
+    }
+
+    h2 {
+        @apply text-3xl md:text-4xl font-semibold;
+    }
+
+    h3 {
+        @apply text-xl md:text-2xl font-medium;
+    }
+
+    /* smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
 }
