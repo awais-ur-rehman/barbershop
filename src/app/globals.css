@@ -47,7 +47,26 @@
 /* Global Styles */
 @layer base {
     :root {
-        /* Default to Dark/Luxury Theme */
+        /* Default to Light Theme variables first */
+        --background: #F9FAFB;
+        --foreground: #374151;
+
+        --color-background: #F9FAFB;
+        --color-foreground: #374151;
+
+        --color-primary: #121212;
+        --color-primary-foreground: #FAFAFA;
+
+        --color-secondary: #C5A059;
+        --color-secondary-foreground: #121212;
+
+        --color-border: #E5E7EB;
+        --color-muted: #F3F4F6;
+        --color-card: #FFFFFF;
+        --color-muted-foreground: #6B7280;
+    }
+
+    .dark {
         --background: #121212;
         --foreground: #EDEDED;
 
@@ -63,17 +82,6 @@
         --color-border: #333333;
         --color-muted: #1F1F1F;
         --color-card: #1A1A1A;
-    }
-
-    .dark {
-        --background: #121212;
-        --foreground: #E5E5E5;
-        --color-background: #121212;
-        --color-foreground: #E5E5E5;
-        --color-card: #1E1E1E;
-        --color-card-foreground: #E5E5E5;
-        --color-border: #2D2D2D;
-        --color-muted: #1F2937;
         --color-muted-foreground: #9CA3AF;
     }
 
@@ -106,6 +114,12 @@
 
     /* smooth scrolling */
     html {
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; -- DISABLED for scroll-driven animation performance */
+        scroll-behavior: auto;
+    }
+
+    /* Prevent pull-to-refresh from interfering with scroll animations */
+    body {
+        overscroll-behavior: none;
     }
 }
