@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Barber Shop",
+  title: "Esa Hair Saloon",
   description: "Experience the best grooming service in town.",
 };
 

@@ -50,7 +50,7 @@ export default function Header() {
               href="/"
               className="text-2xl font-serif font-bold tracking-tighter text-foreground"
             >
-              BARBER<span className="text-gold">SHOP</span>
+              Esa<span className="text-gold"> Hair Saloon</span>
             </Link>
           </div>
 
